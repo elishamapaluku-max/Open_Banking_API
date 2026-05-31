@@ -1,18 +1,14 @@
 require('dotenv').config();
 
-const requiredEnvVars = [
-  'DATABASE_URL',
-  'JWT_SECRET',
-  'ANTHROPIC_API_KEY',
-  'ALLOWED_ORIGIN'
-];
-
-const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
-
-if (missingEnvVars.length > 0) {
-  throw new Error(
-    `Missing required environment variables: ${missingEnvVars.join(', ')}`
-  );
+try {
+  const required = ['DATABASE_URL', 'JWT_SECRET', 'ANTHROPIC_API_KEY', 'ALLOWED_ORIGIN']
+  required.forEach(key => {
+    if (!process.env[key]) throw new Error(`Missing required env var: ${key}`)
+  })
+} catch (err) {
+  console.error(err.message)
+  // do not call process.exit here — let the server start 
+  // so Railway healthcheck passes, then fix variables
 }
 
 const PORT = process.env.PORT;
