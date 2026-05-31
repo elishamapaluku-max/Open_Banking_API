@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend application",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "echo 'Frontend dev script to be configured'",
+    "start": "echo 'Frontend start script to be configured'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
