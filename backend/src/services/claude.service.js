@@ -1,4 +1,4 @@
-import anthropic from '../config/claude.js';
+const anthropic = require('../config/claude');
 
 const MODEL = 'claude-sonnet-4-20250514';
 const MAX_TOKENS = 1000;
@@ -131,7 +131,7 @@ Consider salary deposits, business income, regular transfers, and other income p
   }
 };
 
-export {
+module.exports = {
   generateBorrowerProfile,
   categorizeTransactions,
   estimateIncome

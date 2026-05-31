@@ -1,10 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import routes from './routes/index.js';
-import { ALLOWED_ORIGIN, NODE_ENV } from './config/env.js';
-import errorHandler from './middleware/error.middleware.js';
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const routes = require('./routes');
+const { ALLOWED_ORIGIN, NODE_ENV } = require('./config/env');
+const errorHandler = require('./middleware/error.middleware');
 
 const app = express();
 
@@ -41,4 +41,4 @@ app.use('/api/v1', routes);
 // Global error handling middleware
 app.use(errorHandler);
 
-export default app;
+module.exports = app;

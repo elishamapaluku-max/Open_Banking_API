@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '../config/env.js';
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../config/env');
 
 /**
  * Authenticate JWT token from Authorization header
@@ -51,7 +51,7 @@ const optionalAuth = (req, res, next) => {
   });
 };
 
-export {
+module.exports = {
   authenticateToken,
   optionalAuth
 };

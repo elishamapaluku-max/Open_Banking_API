@@ -1,11 +1,11 @@
-import express from 'express';
+const express = require('express');
 const router = express.Router();
 
-import authRouter from './auth.routes.js';
-import accountsRouter from './accounts.routes.js';
-import analyzeRouter from './analyze.routes.js';
-import parseRouter from './parse.routes.js';
-import institutionsRouter from './institutions.routes.js';
+const authRouter = require('./auth.routes');
+const accountsRouter = require('./accounts.routes');
+const analyzeRouter = require('./analyze.routes');
+const parseRouter = require('./parse.routes');
+const institutionsRouter = require('./institutions.routes');
 
 router.get('/', (req, res) => {
   res.json({ message: 'Welcome to KipaAPI' });
@@ -17,4 +17,4 @@ router.use('/analyze', analyzeRouter);
 router.use('/parse', parseRouter);
 router.use('/institutions', institutionsRouter);
 
-export default router;
+module.exports = router;

@@ -1,7 +1,7 @@
-import express from 'express';
+const express = require('express');
 const router = express.Router();
-import multer from 'multer';
-import { parseStatement } from '../controllers/parse.controller.js';
+const multer = require('multer');
+const { parseStatement } = require('../controllers/parse.controller');
 
 // Configure multer for memory storage with 10MB limit
 const upload = multer({
@@ -13,4 +13,4 @@ const upload = multer({
 
 router.post('/statement', upload.single('statement'), parseStatement);
 
-export default router;
+module.exports = router;

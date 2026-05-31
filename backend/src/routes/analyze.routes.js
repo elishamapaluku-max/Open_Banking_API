@@ -1,9 +1,9 @@
-import express from 'express';
+const express = require('express');
 const router = express.Router();
-import { authenticateToken } from '../middleware/auth.middleware.js';
-import { profile, income } from '../controllers/analyze.controller.js';
+const { authenticateToken } = require('../middleware/auth.middleware');
+const { profile, income } = require('../controllers/analyze.controller');
 
 router.post('/profile', authenticateToken, profile);
 router.post('/income', authenticateToken, income);
 
-export default router;
+module.exports = router;

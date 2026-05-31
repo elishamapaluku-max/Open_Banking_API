@@ -50,7 +50,7 @@ const paginated = (res, data, page, limit, total) => {
   });
 };
 
-export {
+module.exports = {
   success,
   error,
   paginated

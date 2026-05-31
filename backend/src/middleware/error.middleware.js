@@ -1,4 +1,4 @@
-import { NODE_ENV } from '../config/env.js';
+const { NODE_ENV } = require('../config/env');
 
 /**
  * Global error handler middleware
@@ -19,4 +19,4 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-export default errorHandler;
+module.exports = errorHandler;

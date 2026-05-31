@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import { query } from '../src/config/database.js';
+const fs = require('fs');
+const path = require('path');
+const { query } = require('../src/config/database');
 
-const migrationsDir = path.join(process.cwd(), 'db', 'migrations');
+const migrationsDir = path.join(__dirname, 'migrations');
 
 const runMigrations = async () => {
   try {
