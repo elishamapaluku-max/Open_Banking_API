@@ -1,8 +1,8 @@
-const Anthropic = require('@anthropic-ai/sdk');
-const { ANTHROPIC_API_KEY } = require('./env');
+import Anthropic from '@anthropic-ai/sdk';
+import { ANTHROPIC_API_KEY } from './env.js';
 
 const anthropic = new Anthropic({
   apiKey: ANTHROPIC_API_KEY
 });
 
-module.exports = anthropic;
+export default anthropic;

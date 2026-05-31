@@ -6,7 +6,7 @@ const income = async (req, res) => {
   res.status(200).json({ message: 'POST /analyze/income — not yet implemented' });
 };
 
-module.exports = {
+export {
   profile,
   income
 };

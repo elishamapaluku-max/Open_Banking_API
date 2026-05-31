@@ -9,6 +9,6 @@ const getInstitutions = async (req, res) => {
   res.status(200).json(institutions);
 };
 
-module.exports = {
+export {
   getInstitutions
 };

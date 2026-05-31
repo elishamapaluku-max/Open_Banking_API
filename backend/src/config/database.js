@@ -1,5 +1,5 @@
-const { Pool } = require('pg');
-const { DATABASE_URL, NODE_ENV } = require('./env');
+import { Pool } from 'pg';
+import { DATABASE_URL, NODE_ENV } from './env.js';
 
 const pool = new Pool({
   connectionString: DATABASE_URL
@@ -50,7 +50,7 @@ const testConnection = async () => {
 
 testConnection();
 
-module.exports = {
+export {
   pool,
   query,
   getClient

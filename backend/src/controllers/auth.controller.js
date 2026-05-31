@@ -12,7 +12,7 @@ const revoke = async (req, res) => {
   res.status(200).json({ message: 'POST /auth/revoke — not yet implemented' });
 };
 
-module.exports = {
+export {
   connect,
   callback,
   revoke
