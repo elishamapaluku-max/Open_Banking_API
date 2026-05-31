@@ -8,6 +8,11 @@ const errorHandler = require('./middleware/error.middleware');
 
 const app = express();
 
+// Health check route - must be first for Railway healthcheck
+app.get('/api/v1/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() })
+})
+
 // Security middleware
 app.use(helmet());
 
@@ -26,14 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 if (NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
-// Health check route
-app.get('/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString()
-  });
-});
 
 // API routes
 app.use('/api/v1', routes);
