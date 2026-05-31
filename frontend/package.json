@@ -1,13 +1,23 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "Frontend application",
-  "main": "src/index.js",
+  "private": true,
   "scripts": {
-    "dev": "echo 'Frontend dev script to be configured'",
-    "start": "echo 'Frontend start script to be configured'"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.1.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
+  }
 }

@@ -2,36 +2,43 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
 const routes = require('./routes');
+const { ALLOWED_ORIGIN, NODE_ENV } = require('./config/env');
+const errorHandler = require('./middleware/error.middleware');
 
 const app = express();
 
 // Security middleware
 app.use(helmet());
-app.use(cors());
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
-});
-app.use(limiter);
+// CORS configuration
+const corsOptions = {
+  origin: ALLOWED_ORIGIN,
+  credentials: true
+};
+app.use(cors(corsOptions));
 
-// Logging
-app.use(morgan('dev'));
-
-// Body parsing
+// Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use('/', routes);
+// HTTP request logging in development mode
+if (NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
-// Error handling
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
+// Health check route
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString()
+  });
 });
+
+// API routes
+app.use('/api/v1', routes);
+
+// Global error handling middleware
+app.use(errorHandler);
 
 module.exports = app;
