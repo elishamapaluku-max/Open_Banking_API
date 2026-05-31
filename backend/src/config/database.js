@@ -33,23 +33,6 @@ pool.on('error', (err) => {
   }
 });
 
-// Test connection on startup
-const testConnection = async () => {
-  try {
-    const result = await pool.query('SELECT NOW()');
-    console.log('Database connection successful:', result.rows[0]);
-  } catch (error) {
-    console.error('Database connection failed:', error.message);
-    if (NODE_ENV === 'production') {
-      process.exit(1);
-    } else {
-      console.warn('Continuing without database connection in development mode');
-    }
-  }
-};
-
-testConnection();
-
 module.exports = {
   pool,
   query,
