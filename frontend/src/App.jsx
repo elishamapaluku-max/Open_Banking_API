@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './pages/Landing'; 
-import Docs from './pages/Docs'; 
+import Docs from './pages/Docs';
+import Sandbox from './pages/Sandbox';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
             <Route path="/" element={<Landing />} />
             {/* 2. Add the Docs route */}
             <Route path="/docs" element={<Docs />} />
+            {/* 3. Add the Sandbox route */}
+            <Route path="/sandbox" element={<Sandbox />} />
           </Routes>
         </main>
 
