@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer';
 import Landing from './pages/Landing'; 
 import Docs from './pages/Docs';
 import Sandbox from './pages/Sandbox';
+import Assistant from './pages/Assistant';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route path="/docs" element={<Docs />} />
             {/* 3. Add the Sandbox route */}
             <Route path="/sandbox" element={<Sandbox />} />
+            {/* 4. Add the Assistant route */}
+            <Route path="/assistant" element={<Assistant />} />
           </Routes>
         </main>
 
