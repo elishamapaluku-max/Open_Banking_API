@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import Docs from './pages/Docs';
 import Sandbox from './pages/Sandbox';
 import Assistant from './pages/Assistant';
+import Demo from './pages/Demo';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         
         <main className="grow max-w-7xl mx-auto w-full px-4 py-8">
           <Routes>
+            {/* 1. Add the Landing route */}
             <Route path="/" element={<Landing />} />
             {/* 2. Add the Docs route */}
             <Route path="/docs" element={<Docs />} />
@@ -21,6 +23,8 @@ function App() {
             <Route path="/sandbox" element={<Sandbox />} />
             {/* 4. Add the Assistant route */}
             <Route path="/assistant" element={<Assistant />} />
+            {/* 5. Add the Demo route */}
+            <Route path="/demo" element={<Demo />} />
           </Routes>
         </main>
 
