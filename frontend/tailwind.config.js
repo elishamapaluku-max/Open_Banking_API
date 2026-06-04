@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -9,3 +10,10 @@ export default {
   },
   plugins: [],
 }
+=======
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: { extend: {} },
+  plugins: [],
+}
+>>>>>>> main

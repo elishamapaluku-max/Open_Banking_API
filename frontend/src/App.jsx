@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -35,3 +36,12 @@ function App() {
 }
 
 export default App;
+=======
+export default function App() {
+  return (
+    <div>
+      <h1>KipaAPI</h1>
+    </div>
+  )
+}
+>>>>>>> main
